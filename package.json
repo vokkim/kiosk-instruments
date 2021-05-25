@@ -1,0 +1,54 @@
+{
+  "name": "kiosk-instruments",
+  "version": "1.0.0",
+  "description": "Signal K data display webapp intended for kiosk-like use",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack watch --config ./webpack.config.js --mode development",
+    "build": "webpack build --config ./webpack.config.js --mode production && npm run build-css",
+    "build-css": "postcss assets/styles.css > public/styles.css",
+    "watch-css": "chokidar 'assets/*.css' -c 'npm run build-css'",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "signalk-webapp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vokkim/kiosk-instruments.git"
+  },
+  "author": "Mikko Vesikkala",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "7.14.3",
+    "@babel/core": "7.14.3",
+    "@babel/plugin-transform-arrow-functions": "7.13.0",
+    "@babel/plugin-transform-template-literals": "7.13.0",
+    "@babel/preset-env": "7.14.2",
+    "@signalk/client": "2.1.6",
+    "babel-loader": "8.2.2",
+    "buffer": "6.0.3",
+    "cssnano": "5.0.4",
+    "formatcoords": "1.1.3",
+    "http-browserify": "1.7.0",
+    "http-server": "0.12.3",
+    "https-browserify": "1.0.0",
+    "postcss": "8.3.0",
+    "postcss-cli": "8.3.1",
+    "postcss-import": "14.0.2",
+    "process": "0.11.10",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-grid-layout": "1.2.5",
+    "react-select": "4.3.1",
+    "regenerator-runtime": "0.13.7",
+    "stream-browserify": "3.0.0",
+    "util": "0.12.3",
+    "webpack": "5.37.1",
+    "webpack-cli": "4.7.0",
+    "@babel/preset-react": "7.13.13",
+    "chokidar-cli": "2.1.0",
+    "webpack-dev-server": "3.11.2",
+    "uuid": "8.3.2"
+  }
+}
