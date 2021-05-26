@@ -4,10 +4,12 @@ import {get, post} from './api'
 let subscriptionPathQueue = []
 let listeners = []
 
+const isHttps = window.location.protocol.includes('https')
+
 const client = new Client({
-  hostname: 'localhost',
-  port: 3000,
-  useTLS: false,
+  hostname: window.location.hostname,
+  port: parseInt(window.location.port, 10) || isHttps ? 443 : 80,
+  useTLS: isHttps,
   reconnect: true,
   autoConnect: true,
   notifications: false,

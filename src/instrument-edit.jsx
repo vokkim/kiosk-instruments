@@ -137,6 +137,5 @@ function getFoo(selectedPath) {
   if (units === 'K') {
     return ['C', 'F']
   }
-  console.log('NO U_NNIIT', units)
   return []
 }
