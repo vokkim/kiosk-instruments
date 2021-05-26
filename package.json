@@ -1,6 +1,6 @@
 {
   "name": "kiosk-instruments",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Signal K data display webapp intended for kiosk-like use",
   "main": "index.js",
   "scripts": {
