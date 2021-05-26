@@ -50,12 +50,12 @@ export async function logout(serverUrl) {
 }
 
 export async function getStoredConfigurationFromServer() {
-  const result = await get('/signalk/v1/applicationData/user/arbuusi-instruments/1.0/config')
+  const result = await get('/signalk/v1/applicationData/user/kiosk-instruments/1.0/config')
   return result
 }
 
 export async function storeConfigurationToServer(data) {
-  const result = await post('/signalk/v1/applicationData/user/arbuusi-instruments/1.0/config', data)
+  const result = await post('/signalk/v1/applicationData/user/kiosk-instruments/1.0/config', data)
 }
 
 function getMetadata(path) {
