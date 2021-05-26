@@ -5,10 +5,12 @@ let subscriptionPathQueue = []
 let listeners = []
 
 const isHttps = window.location.protocol.includes('https')
+const hostname = window.location.hostname
+const port = parseInt(window.location.port, 10) || isHttps ? 443 : 80
 
 const client = new Client({
-  hostname: window.location.hostname,
-  port: parseInt(window.location.port, 10) || isHttps ? 443 : 80,
+  hostname,
+  port,
   useTLS: isHttps,
   reconnect: true,
   autoConnect: true,
@@ -64,6 +66,9 @@ export async function storeConfigurationToServer(data) {
 }
 
 function getMetadata(path) {
+  if (path === undefined) {
+    return {}
+  }
   return client.API().then((api) => api.getMeta('vessels.self.' + path))
 }
 
@@ -77,6 +82,9 @@ function parseDataPaths(data, prefix = '') {
       return acc
     }
     const dataForKey = data[k]
+    if (typeof dataForKey !== 'object') {
+      return acc
+    }
     const key = prefix + k
     if (dataForKey.timestamp || dataForKey.value !== undefined) {
       return acc.concat([{key, meta: dataForKey.meta}])
