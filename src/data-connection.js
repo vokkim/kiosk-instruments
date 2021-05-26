@@ -50,8 +50,11 @@ export async function logout(serverUrl) {
 }
 
 export async function getStoredConfigurationFromServer() {
-  const result = await get('/signalk/v1/applicationData/user/kiosk-instruments/1.0/config')
-  return result
+  try {
+    return await get('/signalk/v1/applicationData/user/kiosk-instruments/1.0/config')
+  } catch (e) {
+    return undefined
+  }
 }
 
 export async function storeConfigurationToServer(data) {
