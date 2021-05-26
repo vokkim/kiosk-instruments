@@ -6,6 +6,8 @@
 - Requires Singal K user account
 - Accepts `kiosk=true` and `username=<user>&password=<password>` query params from URL
 
+![Kiosk Instruments preview](https://user-images.githubusercontent.com/1435910/119660525-08cc8800-be38-11eb-9fc4-b7ea1e7e53eb.png)
+
 # License
 
 MIT
